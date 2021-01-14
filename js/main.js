@@ -49,7 +49,7 @@ function buildLightBox(employeeData) {
 	$('.lightbox .city').text(`${employeeData.location.city}`);
 	$('.lightbox .phone').text(`${employeeData.cell}`);
 	$('.lightbox .address').text(`${getFormattedAddress(employeeData)}`);
-	$('.lightbox .dob').text(`Birthday: ${getFormattedDate(new Date(employeeData.dob))}`);
+	$('.lightbox .dob').text(`Birthday: ${getFormattedDate(new Date(employeeData.dob.date))}`);
 
 	$('.lightbox').css('display', 'block');
 }
