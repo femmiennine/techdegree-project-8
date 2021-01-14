@@ -48,7 +48,7 @@ function buildLightBox(employeeData) {
 	$('.lightbox .email').text(`${employeeData.email}`);
 	$('.lightbox .city').text(`${employeeData.location.city}`);
 	$('.lightbox .phone').text(`${employeeData.cell}`);
-	$('.lightbox .address').text(getFormattedAddress(employeeData));
+	$('.lightbox .address').text(`${getFormattedAddress(employeeData)}`);
 	$('.lightbox .dob').text(`Birthday: ${getFormattedDate(new Date(employeeData.dob))}`);
 
 	$('.lightbox').css('display', 'block');
@@ -196,7 +196,7 @@ function createACard(employee) {
 }
 
 function getFormattedAddress(employeeData) {
-	return `${employeeData.location.street}, ${getStateAbbr(employeeData.location.state)}, ${employeeData.location.postcode}`;
+	return `${employeeData.location.street.name} ${employeeData.location.street.number} ${employeeData.location.city}`;
 }
 
 function getFormattedDate(date) {
@@ -211,7 +211,7 @@ function getFormattedDate(date) {
 	const formattedDay = formatWithTwoDigits(date.getDay() + 1);
 	const formattedShortYear = `${date.getFullYear().toString().substring(2)}`;
 
-	return `${formattedMonth}/${formattedDay}/${formattedShortYear}`;
+	return `${formattedMonth}-${formattedDay}-${formattedShortYear}`;
 }
 
 function getStateAbbr(state) {
